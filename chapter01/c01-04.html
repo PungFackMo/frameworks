@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 타켓 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        //c01-04.html
+        /* 데이터와 요소를 분리해서 작성하기 
+        리액트를 사용하는 경우 큰 장점은 UI엘리먼트와 데이터를 분리할 수 있다는 것이다.
+        배열에 데이터를 저장해두고 그 배열을 리액트 요소로 map할 수 있다.
+        */
+       /*  레시피에서 재료 리스트에 사용할 데이터를 자바스크립트 배열로 간단한데 표현 */
+       const items=["연어 900그램","로즈마리 5가지","올리브 오일 2 테이블 스푼"]
+       const ingredients=React.createElement(
+        "ul",
+        {className:"ingredients"},
+        items.map((ingredient,i)=>React.createElement("li",{key:i},ingredient))
+       )
+       ReactDOM.render(ingredients,document.querySelector("#root"))
+       /* 배열을 반복해서 자식 요소의 리스트를 만드는 경우 리액트에서는 각 자식 요소에 key 속성을 넣는 것을 권장한다. 리액트는 key를 사용해 DOM을 더 효율적으로 갱신할 수 있다. */
+    </script>
+</body>
+</html>

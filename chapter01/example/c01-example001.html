@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재료 및 양념 목록</title>
+</head>
+<body>
+    <!-- 타겟 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        const data = [
+            {
+                title: "재료",
+                items: [
+                    "돼지고기 앞다리살 - 500g",
+                    "배추김치 - 1쪽",
+                    "대파 - 1개",
+                    "청양고추 - 2개",
+                    "물 - 800ml"
+                ]
+            },
+            {
+                title: "양념",
+                items: [
+                    "된장 - 1수저",
+                    "들기름 - 2수저 or 참기름",
+                    "설탕 - 1/2수저",
+                    "다진마늘 - 1수저",
+                    "후추 - 2꼬집"
+                ]
+            },
+            {
+                title: "재료",
+                items: [
+                    "팽이버섯 - 1봉지",
+                    "청양고추 - 1개",
+                    "식용유 - 2스푼",
+                    "다진마늘 - 1큰술"
+                ]
+            },
+            {
+                title: "양념",
+                items: [
+                    "고추가루 - 1/2스푼",
+                    "설탕 - 1스푼",
+                    "미림 - 2스푼",
+                    "진간장 - 1스푼",
+                    "굴소스 - 1/2스푼",
+                    "고추장 - 1/3스푼",
+                    "된장 - 1/3스푼",
+                    "물 - 2스푼"
+                ]
+            }
+        ];
+
+        const ingredientSections = data.map(section => 
+            React.createElement(
+                "div",
+                null,
+                React.createElement("h2", null, section.title),
+                React.createElement(
+                    "ul",
+                    { className: "ingredients" },
+                    section.items.map(item => React.createElement("li", null, item))
+                )
+            )
+        );
+
+        ReactDOM.render(
+            React.createElement("div", null, ingredientSections),
+            document.querySelector("#root")
+        );
+    </script>
+</body>
+</html>

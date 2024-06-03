@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- c01-03.html -->
+    <ul>
+        <li>연어 900그램</li>
+        <li>로즈마리 5가지</li>
+        <li>소금 1 티스푼</li>
+    </ul>
+
+    <!-- 타켓 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        /* 자식들 */
+        const dish=React.createElement(
+            "ul",
+            null,
+            React.createElement("li",null,"연어 900그램"),
+            React.createElement("li",null,"로즈마리 5가지"),
+            React.createElement("li",null,"소금 1 티스푼"),
+        )
+        ReactDOM.render(dish,document.querySelector("#root"))
+    </script>
+    <section id="baked-salmon">
+        <h1>구운 연어</h1>
+        <ul class="ingredients">
+            <li>연어 900그램</li>
+            <li>로즈마리 5가지</li>
+        </ul>
+    </section>
+    <section class="instructions">
+        <h2>조리 과정</h2>
+        <p>오픈을 190도로 예열한다.</p>
+        <p>알루미늄 포일에 올리브 오일을 가볍게 두른다.</p>
+    </section>
+    <script>
+        /* section엘리먼트 안에 모든 조리법이 들어간 리액트 엘리먼트 만들기 
+        리액트에서 className 사용하기
+        html class속성이 있는 엘리먼트는 class 대신 className이라는 이름의 속성(프로퍼티)을 사용해야 한다.
+        class가 자바 스크립트에서 예약어라서 다른 이름인 className을 사용해야만 한다.
+        */
+        const bakedSalmon=React.createElement(
+            "section",
+            {id:"baked-salmon"},
+            React.createElement("h1",null,"구운 연어"),
+            React.createElement(
+                "ul",
+                {"className":"ingredients"},
+                React.createElement("li",null,"연어 900 그램"),
+                React.createElement("li",null,"로즈마리 5가지"),
+            ),
+        )
+        const instructions=React.createElement(
+            "section",
+            {"className":"insturctions"},
+            React.createElement("h2",null,"조리절차"),
+            React.createElement("p",null,"오븐을 190도로 예열한다."),
+            React.createElement("p",null,"알루미늄 포일에 올리브 오일을 가볍게 두른다."),
+        )
+        ReactDOM.render([bakedSalmon,instructions],document.querySelector("#root"))
+    </script>
+</body>
+</html>

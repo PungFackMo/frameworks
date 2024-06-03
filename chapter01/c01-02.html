@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- c01-02.html -->
+    <h1 id="recipe-0">구운 연어</h1>
+
+    <!-- 타켓 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        /* 리액트 엘리먼트(요소, element, 태그)
+            단일 페이지 애플리케이션
+            SPA - Single Page Application
+            리액트는 브라우저 DOM을 갱신해주기 위해 만들어진 라이브러리다.
+            돔을 갱신하는 모든 처리를 대신 해주기 때문에 SPA를 더 효율적으로 만들기 위해 여러 복잡한 내용을 신경쓸 필요가 없다.
+
+            React.createElement를 사용해 리액트 엘리먼트를 만들 수 있다.
+
+            
+        */
+        const dish=React.createElement("h1",{id:"recipe-1"},"구운 연어01")
+       /* 첫 번째 인자는 만들려는 엘리먼트의 타입을 정의한다
+        두 번째 인자는 엘리먼트의 프로퍼터(속성, propertie)를 표현한다.
+        세 번째 인자는 만들려는 엘리먼트를 여는 태그와 닫는 태그 사이에 들어가야 할 자식 노드들을 표현한다.
+
+        리액트 엘리먼트는 DOM API를 직접  다루지 않고 리액트에서 자체적으로 만든 자바스크립트 객체인 가상 DOM을 다룬다
+
+        DOM API란?
+        예를 들어 요소를 만들 때 document.createElement()
+        라고 라이브러리를 사용하는 것을 일컷는다
+
+        리액트 엘리먼트 생성 -> 가상 DOM 객체로 생성 ->렌더링 될 때 DOM으로 생성
+       */
+        console.log(dish)
+        ReactDOM.render(dish,document.querySelector("#root"))
+        /* ReactDOM에는 리액트 엘리먼트를 브라우저에 렌더링하는 데 필요한 모든 도구가 들어 있다
+        렌더링이라는 것은 언어로 작성된 화면 표현을 화면에 실제 보이는 것으로 변환해서 보여주는 것
+        ReactDOM.render 함수
+        첫 번째 인자는 렌더링할 리액트 엘리먼트
+        두 번째 인자는 렌더링이 일어날 대상 DOM노드이다
+        */
+        const dish2=React.createElement("h1",null,"구운 연어02")
+        ReactDOM.render(dish2,document.querySelector("#root"))
+        /* 리액트 16 이후 버전에서는 배열을 렌더링할 수도 있다 */
+        const dish3=React.createElement("h1",null,"구운 연어03")
+        const dessert3=React.createElement("h2",null,"코코넛 크림 파이03")
+
+        ReactDOM.render([dish3,dessert3],document.querySelector("#root"))
+        /* root 컨테이너 내부에 이 두 엘리먼트를 형제 노드로 렌더링한다. */
+    </script>
+</body>
+</html>
