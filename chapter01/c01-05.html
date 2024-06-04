@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 타켓 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        //과제 풀이
+        const items1 = ["가지 1개", "간장 2스푼", "설탕1.5스푼", "식초 1스푼", "식초 1스푼", "다진마늘 1/2스푼", "버터 2스푼"]
+        const ingredients1=React.createElement(
+            "ul",
+            {className:"ingredients"},
+            items1.map((ingredient,i)=>React.createElement("li",{key:i},ingredient))
+        )
+       const items2 = ["돼지고기 앞다리살 500그램", "배추김치 1쪽", "대파 1개", "청양고추 2개", "물 800ml", "된장 1스푼", "들기름 2스푼", "설탕 1/2스푼", "다진마늘 1스푼", " 후추 2꼬집"]
+       const ingredients2=React.createElement(
+            "ul",
+            {className:"ingredients"},
+            items2.map((ingredient,i)=>React.createElement("li",{key:i},ingredient))
+        )
+       ReactDOM.render([ingredients1,ingredients2],document.querySelector("#root"))
+       
+       //애플리케이션을 개발 할 때
+       //1. 생각 나는 데로 코드를 작성
+       //2. 리팩토링을 통해 코드를 수정
+
+       //리팩토링의 기준
+       //1. 반복되는 코드를 줄여야 된다
+       //2. 코드들을 일류적으로 작성해야 된다
+    </script>
+</body>
+</html>

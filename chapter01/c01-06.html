@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 타켓 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        //c01-06.html
+        /* 리액트 컴포넌트
+            사용자 인터페이스는 여러 부분으로 이뤄진다.
+            버튼, 리스트, 제목등이 이런 부품이다.
+            이런 부품이 모여서 사용자 인터페이스를 이룬다.
+            3가지 조리법을 보여주는 조리법 애플리케이션을 생각해 봤을 때 각 박스에 들어 있는 데이터는 서로 다르지만, 각 조리법을 이루는 부품은 같다
+            리액트에서 이런 각 부분을 컴포넌트(component)라고 부른다.
+        */
+        /* IngredientsList 컴포넌트가 배열을 map함수를 이용해서 배열에 있는 모든 내용에 대해 li를 만들게 한다 */
+        function IngredientsList(props){
+            console.log(props.test)
+            return React.createElement(
+                "ul",
+                {className:"ingredients"},
+                props.items.map((ingredient,i)=>
+                    React.createElement("li",{key:i},ingredient))
+            )
+        }
+        /* 컴포넌트 만들고 데이터를 인자로 컴포넌트에 넘기고 그 후 컴포넌트가 데이터를 동적으로 렌더링하게 만든다 */
+        const secretIngredients=[
+            "무염 버터 1컵",
+            "크런치 땅콩 버터 1컵",
+            "흑설탕 1컵"
+        ]
+        const ingredients=["연어 900그램","로즈마리 5가지","올리브 오일 2 테이블 스푼"]
+        ReactDOM.render(
+            [
+                React.createElement(IngredientsList,{items:secretIngredients,},null),
+                React.createElement(IngredientsList,{items:ingredients,},null)
+            ],
+            document.querySelector("#root")
+        )
+        /* 리액트 컴포넌트의 역사
+            컴포넌트를 만드는 방법
+            첫 번째 : createClass함수를 사용
+            두 번째 : 클래스 컴포넌트
+            세 번째 : 함수 컴포넌트가 사용되고 있다
+        */
+    </script>
+</body>
+</html>
