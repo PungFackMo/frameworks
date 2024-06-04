@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var animation = new Animation({frame:'100ms'});
+var animate = function (dt) {
+ 
+    // do your animation stuff
+ 
+    if (process.stdout.write(data)) {
+        animation.nextTick(animate);
+    } else {
+        var t = new Date().getTime()
+        process.stdout.once('drain', function () {
+            var now = new Date().getTime();
+            animate(now - t + dt);
+        });
+    }
+};
+animation.nextTick(animate); // no start required
+    </script>
+</body>
+</html>
