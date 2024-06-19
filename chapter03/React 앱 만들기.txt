@@ -2,6 +2,21 @@ npx create-react-app my-app
 
 npx create-react-app my-app-use-state
 
+npx create-react-app star-app
+
+npx create-react-app hooks
+
+npx create-react-app router
+
+npx create-react-app car
+npm install @mui/material @emotion/react @emotion/styled
+
+npx create-react-app weatherapp
+
+npx create-react-app restgithub
+
+css문법 간편한게 사용하기 위해
+
 npx - npm을 더 쉽게 설치하고 관리하도록 도와주는 도구이다.
 
 npm - node pacakage module
