@@ -10,6 +10,8 @@ npx create-react-app router
 
 npx create-react-app car
 npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/x-data-grid
+npm install @mui/icons-material
 
 npx create-react-app weatherapp
 
